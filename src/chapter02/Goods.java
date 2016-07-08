@@ -2,23 +2,28 @@ package chapter02;
 
 public class Goods {
 
-	public static int countOfGoods;
+	private static int countOfGoods;
 	private String name;
 	private int price;
 	private int countStock;
 	private int countSold;
 
-	public Goods(){
-		
+	public Goods() {
+		Goods.countOfGoods++;
 	}
-	
-	public Goods(String name, int price, int countStock, int countSold){
+
+	public static int getCountOfGoods() {
+		return countOfGoods;
+	}
+
+	public Goods(String name, int price, int countStock, int countSold) {
+		Goods.countOfGoods++;
 		this.name = name;
 		this.price = price;
 		this.countStock = countStock;
 		this.countSold = countSold;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -64,8 +69,8 @@ public class Goods {
 		System.out.println("[name=" + name + "," + "price = " + price + "," + "countStock = " + countStock + ","
 				+ "countSold = " + countSold + "]");
 	}
-	
-	public int calcDiscountPrice(int percentage){
+
+	public int calcDiscountPrice(int percentage) {
 		return price * percentage / 100;
 	}
 
